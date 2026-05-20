@@ -9,7 +9,7 @@ Smart file organizer with:
 ## Installation (Linux/macOS)
 
 ```bash
-git clone https://github.com/Benjamin23k/smart-organizer.git
+git clone https://github.com/benjamin23k/smart-organizer.git
 cd smart-organizer
 python -m venv .venv && source .venv/bin/activate
 pip install -e .
@@ -18,7 +18,7 @@ pip install -e .
 ## Installation (Windows)
 
 ```powershell
-git clone https://github.com/Benjamin23k/smart-organizer.git
+git clone https://github.com/benjamin23k/smart-organizer.git
 cd smart-organizer
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
