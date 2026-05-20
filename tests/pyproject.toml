@@ -1,0 +1,43 @@
+# pyproject.toml
+cat > pyproject.toml << 'EOF'
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "smart-organizer"
+version = "1.0.0"
+description = "Organizador inteligente con modo activo/pasivo, reglas declarativas y rollback"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "typer[all]>=0.12",
+    "rich>=13.0",
+    "watchdog>=4.0",
+    "pydantic>=2.0",
+    "tomli>=2.0; python_version < '3.11'",
+]
+
+[project.scripts]
+smart-org = "smart_organizer.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/smart_organizer"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+EOF
+
+# README.md mínimo
+cat > README.md << 'EOF'
+# 📂 Smart Organizer
+Organizador inteligente de archivos con modo activo/pasivo, reglas TOML y rollback.
+
+## Instalación
+```bash
+pip install -e .

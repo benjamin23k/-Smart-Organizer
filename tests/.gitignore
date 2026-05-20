@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+.smart_org_history.json
+dist/
+build/
+*.egg-info/

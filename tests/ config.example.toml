@@ -1,0 +1,20 @@
+[general]
+watch_paths = ["~/smart-org-test/Downloads"]
+
+[[rules]]
+name = "Documentos"
+match_extension = ["pdf", "docx", "txt"]
+destination = "Organizado/Documentos"
+action = "move"
+
+[[rules]]
+name = "Imágenes"
+match_extension = ["jpg", "png", "webp"]
+destination = "Organizado/Imagenes"
+action = "move"
+
+[[rules]]
+name = "Otros"
+match_extension = ["mp3", "zip", "py"]
+destination = "Organizado/Otros"
+action = "move"
