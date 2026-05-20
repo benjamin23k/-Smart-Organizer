@@ -1,4 +1,3 @@
-# 📂 Smart Organizer
 
 Smart file organizer with:
 - passive mode (`run`) to scan once
