@@ -1,11 +1,25 @@
 
-Smart file organizer with:
-- passive mode (`run`) to scan once
-- active mode (`watch`) to process new files in real time
-- rules defined in TOML
-- safe simulation with `--dry-run`
+Smart file organizer (English) with:
+- Passive mode (`run`) to scan once
+- Active mode (`watch`) to process new files in real time
+- Rules defined in TOML
+- Safe simulation with `--dry-run`
+- Rollback support with `--undo`
+
+## Key behavior: `destination` is relative to `default_destination`
+By default the app creates an output folder inside the watched folder:
+- if you watch `~/Downloads` and `default_destination = "Organized"`, then the base becomes `~/Downloads/Organized`.
+
+In TOML, each rule’s `destination` is interpreted as **relative to** that base.
+Example:
+- `default_destination = "Organized"`
+- `destination = "Images"`
+→ files go to `~/Downloads/Organized/Images`.
+
+For backward compatibility, if you previously set `destination = "Organized/Images"`, the tool will automatically avoid creating `Organized/Organized/Images`.
 
 ## Installation (Linux/macOS)
+
 
 ```bash
 git clone https://github.com/benjamin23k/smart-organizer.git

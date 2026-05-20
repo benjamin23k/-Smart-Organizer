@@ -3,17 +3,18 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 
-Organizador inteligente de archivos con **modo pasivo (`run`)**, **modo activo en tiempo real (`watch`)**, reglas declarativas en `TOML`, simulación segura (`--dry-run`) y rollback automático (`--undo`).
+Smart file organizer with **passive mode (`run`)**, **active real-time mode (`watch`)**, declarative rules in `TOML`, safe simulation (`--dry-run`) and automatic rollback (`--undo`).
 
-## ✨ Características
-- ✅ Organización por extensión, tamaño o reglas custom
-- 👀 Modo daemon: vigila carpetas y actúa al detectar nuevos archivos
-- 🔒 `--dry-run` para ver qué hará sin tocar nada
-- ↩️ `--undo` para revertir la última ejecución
-- 📦 Configuración limpia y validada con `pydantic`
-- 🚀 CI/CD listo con GitHub Actions
+## ✨ Features
+- ✅ Organize by extension, size, or custom rules
+- 👀 Daemon mode: watch folders and act when new files appear
+- 🔒 `--dry-run` to preview what will happen without touching anything
+- ↩️ `--undo` to revert the last execution
+- 📦 Clean, validated configuration with `pydantic`
+- 🚀 CI/CD ready with GitHub Actions
 
-## 📦 Instalación
+## 📦 Installation
+
 ```bash
 git clone https://github.com/Benjamin23k/smart-organizer.git
 cd smart-organizer
@@ -26,6 +27,7 @@ pip install -e .
 ---
 
 `LICENSE`
+
 ```bash
 cat > LICENSE << 'EOF'
 MIT License

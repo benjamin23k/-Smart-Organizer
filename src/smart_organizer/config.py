@@ -6,8 +6,10 @@ from pydantic import BaseModel, Field
 class General(BaseModel):
     watch_paths: List[Path] = [Path("~/Downloads"), Path("~/Desktop")]
     log_level: str = "INFO"
-    # Usado cuando una regla no define destination
-    default_destination: str = "Organizado"
+    # Used when a rule does NOT define destination.
+    # This folder will be created inside the watched/input folder.
+    default_destination: str = "Organized"
+
 
 class Rule(BaseModel):
     name: str
@@ -21,10 +23,12 @@ class Config(BaseModel):
     rules: List[Rule] = []
 
 def load_config(path: Path) -> Config:
-    # Acepta rutas con ~ y convierte a ruta absoluta
+    # Accept paths with ~ and convert them to an absolute path
     path = path.expanduser().resolve()
+
     if not path.exists():
-        raise FileNotFoundError(f"❌ Config no encontrado: {path}")
+        raise FileNotFoundError(f"❌ Config not found: {path}")
+
 
     if sys.version_info >= (3, 11):
         import tomllib

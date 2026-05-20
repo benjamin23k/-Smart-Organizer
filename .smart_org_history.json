@@ -1,0 +1,52 @@
+[
+  {
+    "src": "/home/benjamin/Downloads/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
+    "dest": "/home/benjamin/Downloads/Organized/Organizado/Imagenes",
+    "action": "move"
+  },
+  {
+    "src": "/home/benjamin/Downloads/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
+    "dest": "/home/benjamin/Downloads/Organized/Organizado/Imagenes",
+    "action": "move"
+  },
+  {
+    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
+    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Organizado/Otros",
+    "action": "move"
+  },
+  {
+    "src": "/tmp/so_test/Downloads/song.mp3",
+    "dest": "/tmp/so_test/Downloads/Organized/Others",
+    "action": "move"
+  },
+  {
+    "src": "/tmp/so_test/Downloads/pic.jpg",
+    "dest": "/tmp/so_test/Downloads/Organized/Images",
+    "action": "move"
+  },
+  {
+    "src": "/tmp/so_test/Downloads/test.pdf",
+    "dest": "/tmp/so_test/Downloads/Organized/Documents",
+    "action": "move"
+  },
+  {
+    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
+    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Others",
+    "action": "move"
+  },
+  {
+    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
+    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Others",
+    "action": "move"
+  },
+  {
+    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
+    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Others",
+    "action": "move"
+  },
+  {
+    "src": "/home/benjamin/Downloads/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
+    "dest": "/home/benjamin/Downloads/Organized/Images",
+    "action": "move"
+  }
+]

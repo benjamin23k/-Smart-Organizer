@@ -1,5 +1,3 @@
-# pyproject.toml
-cat > pyproject.toml << 'EOF'
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -31,13 +29,4 @@ target-version = "py310"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-EOF
 
-# README.md mínimo
-cat > README.md << 'EOF'
-# 📂 Smart Organizer
-Organizador inteligente de archivos con modo activo/pasivo, reglas TOML y rollback.
-
-## Instalación
-```bash
-pip install -e .
