@@ -13,6 +13,7 @@ app = typer.Typer(help="📂 Smart Organizer: Organize files automatically", add
 
 @app.command()
 def run(
+    path: str = typer.Argument(None, help="Folder to organize (defaults to current directory if not configured)"),
     config: str = typer.Option("config.toml", "--config", "-c", help="Path to TOML config"),
     dry_run: bool = typer.Option(False, "--dry-run", help="Simulate without moving"),
     undo: bool = typer.Option(False, "--undo", help="Undo the last execution"),
@@ -24,17 +25,22 @@ def run(
     ),
 ):
     """Run once."""
-    cfg = load_config(Path(config))
+    cfg_path = Path(config)
+    if config == "config.toml" and not cfg_path.exists():
+        cfg = load_config(None)
+    else:
+        cfg = load_config(cfg_path)
 
     if undo:
         rollback()
         return
 
-    if watch_dir:
-        cfg.general.watch_paths = [Path(watch_dir).expanduser().resolve()]
+    target_dir = path or watch_dir
+    if target_dir:
+        cfg.general.watch_paths = [Path(target_dir).expanduser().resolve()]
 
     if output_dir:
-        # Explicit override: destination base becomes exactly this path.
+       
         cfg.general.default_destination = str(Path(output_dir).expanduser().resolve())
 
     console.print(f"🚀 Scanning: {cfg.general.watch_paths}")
@@ -43,6 +49,7 @@ def run(
 
 @app.command()
 def watch(
+    path: str = typer.Argument(None, help="Folder to watch (defaults to current directory if not configured)"),
     config: str = typer.Option("config.toml", "--config", "-c"),
     dry_run: bool = typer.Option(False, "--dry-run"),
     output_dir: str | None = typer.Option(
@@ -53,15 +60,32 @@ def watch(
     ),
 ):
     """Watch for new files and organize them in real time."""
-    cfg = load_config(Path(config))
+    cfg_path = Path(config)
+    if config == "config.toml" and not cfg_path.exists():
+        cfg = load_config(None)
+    else:
+        cfg = load_config(cfg_path)
 
-    if watch_dir:
-        cfg.general.watch_paths = [Path(watch_dir).expanduser().resolve()]
+    target_dir = path or watch_dir
+    if target_dir:
+        cfg.general.watch_paths = [Path(target_dir).expanduser().resolve()]
 
     if output_dir:
         cfg.general.default_destination = str(Path(output_dir).expanduser().resolve())
 
     start(cfg, dry_run=dry_run)
+
+
+@app.command()
+def gui():
+    """Launch the graphical user interface."""
+    try:
+        from .gui import run_gui
+        run_gui()
+    except (ImportError, ModuleNotFoundError, AttributeError):
+        console.print("[bold red]Error: Tkinter is not installed or GUI is not supported on this system.[/bold red]")
+        console.print("[yellow]Please install python3-tk or run the CLI commands instead.[/yellow]")
+        raise typer.Exit(code=1)
 
 
 if __name__ == "__main__":

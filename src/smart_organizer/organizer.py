@@ -12,14 +12,20 @@ def process_path(cfg: Config, dry_run: bool = False):
             logger.warning(f"⚠️ Ignoring path: {src}")
             continue
 
-        # Base output folder is created inside the input folder (the path we were given).
-        # Example: if input is ~/Downloads and default_destination is "Organized",
-        # then output base becomes ~/Downloads/Organized.
+        
         output_base = src / cfg.general.default_destination
 
         for file in src.iterdir():
-            if file.is_dir():
+           
+            if file.name.startswith("."):
                 continue
+
+          
+            try:
+                if file.resolve() == output_base.resolve() or output_base.resolve() in file.resolve().parents:
+                    continue
+            except Exception:
+                pass
 
             for rule in cfg.rules:
                 if matches(file, rule):

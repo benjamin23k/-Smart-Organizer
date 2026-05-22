@@ -17,19 +17,30 @@ class _Handler(FileSystemEventHandler):
         self._cooldown: dict[str, float] = {}
 
     def on_created(self, event):
-        if event.is_directory:
+        p = Path(event.src_path)
+
+      
+        if p.name.startswith("."):
             return
 
-        p = Path(event.src_path)
+        
+        for watch_path in self.cfg.general.watch_paths:
+            output_base = Path(watch_path).expanduser().resolve() / self.cfg.general.default_destination
+            try:
+                if p.resolve() == output_base.resolve() or output_base.resolve() in p.resolve().parents:
+                    return
+            except Exception:
+                pass
+
         if time.time() - self._cooldown.get(str(p), 0) < 2:
             return
 
         self._cooldown[str(p)] = time.time()
-        logger.info(f"📥 New file detected: {p.name}")
+        logger.info(f"📥 New item detected: {p.name}")
         process_path(self.cfg, dry_run=self.dry_run)
 
 
-def start(cfg: Config, dry_run: bool = False):
+def start(cfg: Config, dry_run: bool = False, stop_event=None):
     observer = Observer()
 
     for p in cfg.general.watch_paths:
@@ -43,10 +54,11 @@ def start(cfg: Config, dry_run: bool = False):
     logger.info("📀 Watch mode started. Ctrl+C to exit.")
 
     try:
-        while True:
-            time.sleep(1)
+        while stop_event is None or not stop_event.is_set():
+            time.sleep(0.5)
     except KeyboardInterrupt:
+        pass
+    finally:
         observer.stop()
-
-    observer.join()
+        observer.join()
 

@@ -1,52 +1,27 @@
 [
   {
-    "src": "/home/benjamin/Downloads/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
-    "dest": "/home/benjamin/Downloads/Organized/Organizado/Imagenes",
+    "src": "/tmp/pytest-of-benjamin/pytest-0/test_organize_folder0/src/target_folder",
+    "dest": "/tmp/pytest-of-benjamin/pytest-0/test_organize_folder0/src/Organized/Folders/target_folder",
     "action": "move"
   },
   {
     "src": "/home/benjamin/Downloads/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
-    "dest": "/home/benjamin/Downloads/Organized/Organizado/Imagenes",
+    "dest": "/home/benjamin/Downloads/Organized/Images/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
     "action": "move"
   },
   {
-    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
-    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Organizado/Otros",
+    "src": "/home/benjamin/Downloads/Antigravity IDE.tar.gz",
+    "dest": "/home/benjamin/Downloads/Organized/Archives/Antigravity IDE.tar.gz",
     "action": "move"
   },
   {
-    "src": "/tmp/so_test/Downloads/song.mp3",
-    "dest": "/tmp/so_test/Downloads/Organized/Others",
+    "src": "/tmp/pytest-of-benjamin/pytest-1/test_organize_folder0/src/target_folder",
+    "dest": "/tmp/pytest-of-benjamin/pytest-1/test_organize_folder0/src/Organized/Folders/target_folder",
     "action": "move"
   },
   {
-    "src": "/tmp/so_test/Downloads/pic.jpg",
-    "dest": "/tmp/so_test/Downloads/Organized/Images",
-    "action": "move"
-  },
-  {
-    "src": "/tmp/so_test/Downloads/test.pdf",
-    "dest": "/tmp/so_test/Downloads/Organized/Documents",
-    "action": "move"
-  },
-  {
-    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
-    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Others",
-    "action": "move"
-  },
-  {
-    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
-    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Others",
-    "action": "move"
-  },
-  {
-    "src": "/home/benjamin/dev/python/smart-organizer/tests/test_basic.py",
-    "dest": "/home/benjamin/dev/python/smart-organizer/tests/Organized/Others",
-    "action": "move"
-  },
-  {
-    "src": "/home/benjamin/Downloads/WhatsApp Image 2026-05-20 at 4.55.33 PM.jpeg",
-    "dest": "/home/benjamin/Downloads/Organized/Images",
+    "src": "/tmp/pytest-of-benjamin/pytest-2/test_organize_folder0/src/target_folder",
+    "dest": "/tmp/pytest-of-benjamin/pytest-2/test_organize_folder0/src/Organized/Folders/target_folder",
     "action": "move"
   }
 ]

@@ -43,7 +43,10 @@ def execute_action(file: Path, target: Path, action: str, dry_run: bool) -> bool
     if action == "move":
         shutil.move(str(file), str(target))
     elif action == "copy":
-        shutil.copy2(str(file), str(target))
+        if file.is_dir():
+            shutil.copytree(str(file), str(target), dirs_exist_ok=True)
+        else:
+            shutil.copy2(str(file), str(target))
     elif action == "symlink":
         target.symlink_to(file.resolve())
     else:
@@ -71,9 +74,12 @@ def rollback_history() -> bool:
 
         if dest.exists():
             if entry["action"] == "move" and not src.exists():
-                dest.rename(src)
+                shutil.move(str(dest), str(src))
             elif entry["action"] in ("copy", "symlink"):
-                dest.unlink()
+                if dest.is_dir():
+                    shutil.rmtree(dest)
+                else:
+                    dest.unlink()
 
     HISTORY_FILE.unlink()
     console.print("↩️ Rollback completed.")
