@@ -1,20 +1,68 @@
 [general]
 watch_paths = ["~/Downloads"]
+create_missing_dirs = true
+log_file = "~/smart-organizer.log"
+skip_duplicates = true
+organize_by_date = true
+date_format = "%Y/%m"
 
 [[rules]]
 name = "Documents"
-match_extension = ["pdf", "docx", "txt"]
+match_extension = ["pdf", "docx", "txt", "pptx", "xlsx"]
 destination = "Documents"
 action = "move"
 
 [[rules]]
 name = "Images"
-match_extension = ["jpg", "jpeg", "png", "webp"]
+match_extension = ["jpg", "jpeg", "png", "webp", "gif"]
 destination = "Images"
 action = "move"
 
 [[rules]]
-name = "Others"
-match_extension = ["mp3", "zip", "py"]
-destination = "Others"
+name = "Videos"
+match_extension = ["mp4", "mkv", "avi", "mov"]
+destination = "Videos"
+action = "move"
+
+[[rules]]
+name = "Music"
+match_extension = ["mp3", "wav", "flac"]
+destination = "Music"
+action = "move"
+
+[[rules]]
+name = "Code"
+match_extension = ["py", "cpp", "js", "html", "css", "java"]
+destination = "Code"
+action = "move"
+
+[[rules]]
+name = "Compressed"
+match_extension = ["zip", "rar", "7z", "tar", "gz"]
+destination = "Compressed"
+action = "move"
+
+[[rules]]
+name = "Installers"
+match_extension = ["exe", "msi", "deb", "pkg", "AppImage"]
+destination = "Installers"
+action = "move"
+
+[[rules]]
+name = "Torrents"
+match_extension = ["torrent"]
+destination = "Torrents"
+action = "move"
+
+[[rules]]
+name = "Temp"
+match_extension = ["tmp", "temp", "crdownload"]
+destination = "Temp"
+action = "delete"
+
+
+[[rules]]
+name = "AI"
+match_extension = ["ckpt", "safetensors", "onnx"]
+destination = "AI_Models"
 action = "move"
