@@ -67,6 +67,24 @@ Watch folders (real-time):
 smart-org watch -c config.toml
 ```
 
+### Watch en segundo plano (recomendado)
+Para que el modo `watch` siga funcionando aunque cierres VSCode, puedes usar el script:
+
+```bash
+./scripts/watch_background.sh start \\
+  # (opcional) export WATCH_CONFIG=./config.toml
+  # (opcional) export WATCH_PATH=~/Downloads
+  # (opcional) export WATCH_OUTPUT_DIR=./Organized
+  # (opcional) export WATCH_DRY_RUN=1
+```
+
+Control:
+```bash
+./scripts/watch_background.sh status
+./scripts/watch_background.sh stop
+./scripts/watch_background.sh restart
+```
+
 Dry run (show what would happen, without moving/copying):
 ```bash
 smart-org run -c config.toml --dry-run
@@ -76,6 +94,7 @@ Undo last execution:
 ```bash
 smart-org run --undo
 ```
+
 
 ---
 
